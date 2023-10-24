@@ -66,7 +66,7 @@ console.log(formatText(" Hello woRld   ")); // "Hello world"
     4. Написати функцію, яка видаляє всі спеціальні символи зі строки (залишає лише числа, букви і пробіли в будь-якому регістрі)
 */
 function clearStr(str) {
-  return str.replace(/[^a-zA-Z0-9\s]/g, '');
+  return str.replace(/[^a-zA-Z0-9\s]/g, '').trim();
 }
 
 console.log(clearStr("My var: 22 ")); // виведе "My var 22"
