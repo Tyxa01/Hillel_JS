@@ -2,7 +2,9 @@ import { Employee } from "./employee.js";
 
 
 class Dev extends Employee{
-    constructor(id, salary,) {
+  #jobType = "I am a Dev";
+    
+  constructor(id, salary,) {
         super(id, salary);
         Object.defineProperty(this, "id", {
             value: id,
@@ -10,6 +12,7 @@ class Dev extends Employee{
             configurable: false 
           })
     }
+    
     static returnArrayOfDevs(...objects) {
         const devArray = objects.filter(obj => obj instanceof Dev);
         return devArray;
@@ -19,7 +22,7 @@ class Dev extends Employee{
   
 
 getJobType() {
-    return `I am a Dev `;
+    return this.#jobType
   }
 }
 
