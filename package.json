@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.3.2"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
   }
 }
