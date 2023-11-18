@@ -5,15 +5,18 @@
 node-fetch, інструкця по використанню тут https://www.npmjs.com/package/node-fetch?activeTab=readme, для 
 реалізації асинхронності використати async/await */
 
-import * as request from "./api_helper/api_helper";
+  import * as request from "./api_helper/api_helper.js";
 
-const baseUrl = "https://jsonplaceholder.typicode.com/posts/";
+ const baseUrl = "https://jsonplaceholder.typicode.com/posts/";
 
 /* 2. Реалізувати функцію getPostsByUsedId, яка буде знаходити пости з ресурсу https://jsonplaceholder.typicode.com/posts та робити 
 вибірку постів за id користувача. Також у всіх відфільтрованих постів повинна бути відсутня властивість title */
 
 async function getPostsByUsedId(url, userId) {
-// Ваш код
+  const response = await request.getRequest(url);
+  const filteredPosts = response.filter((post) => post.userId === userId);
+  filteredPosts.forEach((post) => delete post.title);
+  return filteredPosts;
 }
 
 const posts = await getPostsByUsedId(baseUrl, 5);
@@ -26,7 +29,8 @@ const body = {
   body: "New body",
 };
 async function createNewPost(url, body) {
-    // Ваш код
+let response =  request.postRequest(url,body)
+return response
 }
 
 const result = await createNewPost(baseUrl, body);
@@ -37,7 +41,24 @@ console.log(result); // повинен буди респонс у вигляді
 результатом "Rejected <число>", якщо число меньше 5ти. Reject обробити через catch. */
 
 function resolveNumber() {
-    // Ваш код
+   let promise = new Promise ((resolve,reject) => {
+    setTimeout (() => {
+      const number = Math.round(Math.random() * 10)
+      if (number>=5) {
+        resolve ("Resolved"+ number)
+      }else{
+        reject ("Rejected" + number)
+      }
+    }, 3000)
+  
+   })
+   return promise
 }
 
-resolveNumber()//далі обробка промісу, в консолі або, наприклад, Resolved 7, або Rejected 2 (в залежності від рандомно створенного числа)
+resolveNumber()
+.then(result => {
+  console.log(result);
+})
+.catch(error => {
+  console.log(error);
+}); //далі обробка промісу, в консолі або, наприклад, Resolved 7, або Rejected 2 (в залежності від рандомно створенного числа)
