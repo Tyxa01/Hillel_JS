@@ -5,7 +5,7 @@
 node-fetch, інструкця по використанню тут https://www.npmjs.com/package/node-fetch?activeTab=readme, для 
 реалізації асинхронності використати async/await */
 
-  import * as request from "./api_helper/api_helper.js";
+import * as request from "./api_helper/api_helper.js";
 
  const baseUrl = "https://jsonplaceholder.typicode.com/posts/";
 
@@ -39,7 +39,6 @@ console.log(result); // повинен буди респонс у вигляді
 /* 4. Використовуючи синтаксис промісів створити функцію, яка генерує рандомне число від 0 до 10 та з затримкою в 3 секунди
 резолвить проміс з результатом "Resolved <число>" у випадку, якщо число більше 5ти, або повертає reject з 
 результатом "Rejected <число>", якщо число меньше 5ти. Reject обробити через catch. */
-
 function resolveNumber() {
    let promise = new Promise ((resolve,reject) => {
     setTimeout (() => {
