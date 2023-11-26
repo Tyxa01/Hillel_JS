@@ -54,7 +54,6 @@ function resolveNumber() {
    })
    return promise
 }
-
 resolveNumber()
 .then(result => {
   console.log(result);
