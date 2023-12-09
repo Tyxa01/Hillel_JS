@@ -4,8 +4,6 @@
   по своєму реалізує метод getJobType(), використовуючи для jobType приватну властивість. Кожен з класів 
   повинен бути організований у окремому модулі, які лежать у папці modules. Приклад імпортів та викликів нижче.*/
 
-
-
 import { Dev } from "./modules/dev.js";
 import { PM } from "./modules/pm.js";
 import { Employee } from "./modules/employee.js";
@@ -19,22 +17,20 @@ console.log(pm.getJobType()); // виведе I am a PM
 console.log(Employee.compareSalary(dev, pm)); // виведе User with id 2 has greater salary
 console.log(Employee.compareSalary(dev, dev2)); // виведе salaries are equal
 
-// /* На основі ієрархії, побудованої у попередньому завданні, створити об'єкт класу Dev, 
-//    зробити властивість id незмінною та унеможливити її видалення. Строки для перевірки 
+// /* На основі ієрархії, побудованої у попередньому завданні, створити об'єкт класу Dev,
+//    зробити властивість id незмінною та унеможливити її видалення. Строки для перевірки
 //    зміни чи видалення властивості можна коментувати для перевірки роботи скрипта у подальшому. */
 
-const newDev = new Dev(1, 3000, );
+const newDev = new Dev(1, 3000);
 newDev.id = 15; // видасть помилку TypeError: Cannot assign to read only property 'id' of object '#<Dev>'
 delete newDev.id; // видасть помилку TypeError: Cannot delete property 'id' of #<Dev>
 for (let key in newDev) {
   console.log(newDev[key]); // виведе почергово 1 та 3000
 }
 
-
-
 // /* На основі ієрархії, побудованоі вище, додати до класу Dev статичний метод returnArrayOfDevs, який буде приймати невизначену кількість
 // об'єктів, перевіряти що вони є об'єктами класу Dev та якщо так - додавати їх у масив та повертати цей масив.
-// Створити модуль у папці helpers з дефолтним експортом функції sortBySalary (імпорт вже додано вище), яка буде сортувати об'єкти по 
+// Створити модуль у папці helpers з дефолтним експортом функції sortBySalary (імпорт вже додано вище), яка буде сортувати об'єкти по
 // зростанню зарплати, але якщо зп однакова - то по зростанню id. Приклад виконання нижче.
 // */
 
@@ -56,7 +52,7 @@ const users = Dev.returnArrayOfDevs(
   user7,
   user8
 );
-console.log(sortBySalary(users)); 
+console.log(sortBySalary(users));
 /*
 // виведе [
 //   Dev { id: 3, salary: 1000 },

@@ -29,19 +29,19 @@ console.log(arr); // [1, 2, 3]
     - кожне речення починає з великої букви, а всі наступні символи в речені робить маленькими
 */
 function formatText(text) {
-  const textReplace= text.replace (/\s{2,}/g, '')
-  const textSplit = textReplace.split (/[.!?]/)
-  const formattedSentences = textSplit.map ( textSplit => { 
-    const textTrim= textSplit.trim()
-    
+  const textReplace = text.replace(/\s{2,}/g, "");
+  const textSplit = textReplace.split(/[.!?]/);
+  const formattedSentences = textSplit.map((textSplit) => {
+    const textTrim = textSplit.trim();
+
     if (text.Split === 0) {
       return "";
     }
-    const upperCase = textTrim.charAt(0).toUpperCase ()
+    const upperCase = textTrim.charAt(0).toUpperCase();
     const loverCase = textTrim.slice(1).toLowerCase();
-    
+
     return upperCase + loverCase;
-  })
+  });
   const formattedText = formattedSentences.join(". ");
   return formattedText;
 }
@@ -52,21 +52,21 @@ console.log(formatText(" Hello woRld   ")); // "Hello world"
     3. Написати функцію, яка поверне число голосних букв в строкі
 */
 
-     function countVowels(arr) {
-     const vowels = arr.match(/[aeiou]/gi);
-     if (vowels === null) {
-       return 0;
-     }
-     return vowels.length;
-   }
- console.log(countVowels("aAaat")); // виводить 4
- console.log(countVowels("Hello world")); // виводить 3
+function countVowels(arr) {
+  const vowels = arr.match(/[aeiou]/gi);
+  if (vowels === null) {
+    return 0;
+  }
+  return vowels.length;
+}
+console.log(countVowels("aAaat")); // виводить 4
+console.log(countVowels("Hello world")); // виводить 3
 
 /*
     4. Написати функцію, яка видаляє всі спеціальні символи зі строки (залишає лише числа, букви і пробіли в будь-якому регістрі)
 */
 function clearStr(str) {
-  return str.replace(/[^a-zA-Z0-9\s]/g, '').trim();
+  return str.replace(/[^a-zA-Z0-9\s]/g, "").trim();
 }
 
 console.log(clearStr("My var: 22 ")); // виведе "My var 22"
